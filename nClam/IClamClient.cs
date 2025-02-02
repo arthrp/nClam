@@ -147,10 +147,8 @@ namespace nClam
     Task ReloadDb(CancellationToken cancellationToken);
 
     /// <summary>
-    /// Replies with statistics about the scan queue, contents of scan queue, and memory usage.
+    /// Gets the ClamAV server stats
     /// </summary>
-    /// <param name="cancellationToken">cancellation token used for request</param>
-    /// <returns></returns>
-    Task<string> Stats(CancellationToken cancellationToken);
+    Task<string> GetStatsAsync(CancellationToken cancellationToken);
   }
 }

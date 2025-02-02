@@ -139,5 +139,18 @@ namespace nClam
     /// Shuts down the ClamAV server in an orderly fashion.
     /// </summary>
     Task Shutdown(CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Reload the virus databases.
+    /// </summary>
+    /// <param name="cancellationToken">cancellation token used for request</param>
+    Task ReloadDb(CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Replies with statistics about the scan queue, contents of scan queue, and memory usage.
+    /// </summary>
+    /// <param name="cancellationToken">cancellation token used for request</param>
+    /// <returns></returns>
+    Task<string> Stats(CancellationToken cancellationToken);
   }
 }

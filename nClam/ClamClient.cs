@@ -395,5 +395,25 @@
         {
             await ExecuteClamCommandAsync("SHUTDOWN", cancellationToken).ConfigureAwait(false);
         }
+
+        /// <summary>
+        /// Reload the virus databases.
+        /// </summary>
+        /// <param name="cancellationToken">cancellation token used for request</param>
+        public async Task ReloadDb(CancellationToken cancellationToken)
+        {
+            await ExecuteClamCommandAsync("RELOAD", cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Replies with statistics about the scan queue, contents of scan queue, and memory usage.
+        /// </summary>
+        /// <param name="cancellationToken">cancellation token used for request</param>
+        /// <returns></returns>
+        public async Task<string> Stats(CancellationToken cancellationToken)
+        {
+            var stats = await ExecuteClamCommandAsync("STATS", cancellationToken).ConfigureAwait(false);
+            return stats;
+        }
     }
 }
